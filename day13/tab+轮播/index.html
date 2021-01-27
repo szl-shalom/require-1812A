@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 800px;
+            height: 600px;
+            margin: auto;
+            position: relative;
+        }
+
+        .img {
+            width: 800px;
+            height: 600px;
+        }
+
+        .left,.right{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            background-color: rgba(0, 0, 0, .3);
+            font-size: 100px;
+        }
+        .right{
+            right: 0;
+        }
+
+        ul {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
+
+        ul li {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            /* background: rgba(0, 0, 0, .7); */
+            background: tomato;
+            float: left;
+            margin: 0 10px;
+            list-style: none;
+        }
+
+        ul li.active {
+            background: skyblue;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="swiper">
+            <img src="./img/1.jpg" alt="" class="img">
+            <div class="left"><</div>
+            <div class="right">></div>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script src="./lib/require.js" data-main="main"></script>
+</body>
+
+</html>

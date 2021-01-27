@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 500px;
+            margin: 100px auto 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 78%;
+            height: 46px;
+            float: left;
+        }
+
+        button {
+            width: 20%;
+            height: 50px;
+            float: left;
+        }
+
+        ul {
+            width: 99%;
+            border: 1px solid #ccc;
+            display: none;
+        }
+
+        .clear {
+            overflow: hidden;
+        }
+
+        ul li {
+            list-style: none;
+            line-height: 36px;
+            border: 1px solid #ccc;
+            background: #eee;
+        }
+        ul li.active{
+            background: hotpink;
+        }
+        /* ul li:hover {
+            background: hotpink;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>专业的搜索软件</h1>
+        <div class="clear">
+            <input type="text" class="ipt"><button>搜索</button>
+        </div>
+        <ul class="list">
+            <li>内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+            <li>内容4</li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="./lib/require.js" data-main="main"></script>
+</body>
+
+</html>

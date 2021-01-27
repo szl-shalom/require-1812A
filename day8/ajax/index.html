@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>哈哈哈，感受一下服务器</h1>
+    <script>
+        // 1.什么是AJAX
+        // Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式、
+        // 快速动态网页应用的网页开发技术，无需重新加载整个网页的情况下，能够更新部分网页的技术。
+        var $ = {
+            ajax(opt) {
+                var config = {};
+                // 合拼参数
+                Object.assign(config, {
+                    url: "",
+                    type: "GET",
+                    async: true,
+                    data: {},
+                    callback() { }
+                }, opt);
+                var xhr = new XMLHttpRequest();
+
+                if (config.type.toUpperCase() === "GET") {
+                    var params = formatObjectToString(config.data);
+                    // GET 请求方式
+                    xhr.open("get", config.url + "?" + params, true);
+                    xhr.send()
+                } else {
+                    // POST 请求方式
+                    xhr.open("post", config.url, true);
+                    // 设置请求体格式
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+                    xhr.send(config.data)
+                }
+
+                xhr.onreadystatechange = function () {
+                    if(xhr.status === 200 && xhr.readyState === 4){
+                        config.callback && config.callback(JSON.parse(xhr.responseText))
+                    }
+                }
+            }
+        }
+        // "index.json?name=张三&age=18"
+        $.ajax({
+            url: "index.json",
+            type: "get",
+            data: {
+                name: "张三",
+                age: "18"
+            },
+            callback(result){
+                console.log(result)
+            }
+        })
+        // 有一个需要 需要将 { name:"张三",age:"18",sex:"女" }  转化为  => name=张三&age=18&sex=女
+
+
+        function formatObjectToString(obj) {
+            // 方式一：
+            // var arr = [];
+            // for (var key in obj) {
+            //     arr.push(key + "=" + obj[key])
+            // }
+            // console.log(arr.join("&"))
+            // 方式二：
+            // 正则替换
+            // { "name":"张三","age":"18","sex":"女" }
+            // 第一步 将 ":" 替换为 =
+            // { "name=张三","ag=18","sex=女" }
+            // 第二部  "," 替换为 &
+            // { "name=张三&age=18&sex=女" }
+            //  第三步  {"  替换为 ""      " } 替换  ""
+            // => name=张三&age=18&sex=女
+
+            // 将JSON数据转化为 字符串
+            var str = JSON.stringify(obj);
+            return str.replace(/":"/g, "=").replace(/","/g, "&").replace(/(\{")|("\})/g, "");
+        }
+
+
+
+
+        // 2.封装ajax
+        // function ajax(url) {
+        //     // a：创建xhr对象
+        //     var xhr = new XMLHttpRequest();
+        //     // b: 打开链接
+        //     // type 是请求的方式   一般常用的有两种方式：get 和 post
+        //     // url  是请求的路径
+        //     // async 同步请求还是异步请求  
+        //     // xhr.open(type,url,async)    
+        //     xhr.open("get", url, true)
+        //     // c:发送请求
+        //     xhr.send();
+        //     // d:监听
+        //     xhr.onreadystatechange = function () {
+        //         if (xhr.status === 200 && xhr.readyState === 4) {
+        //             // JSON.parse()可以将字符串类型的JSON转化为 真的JSON数据
+        //             // JSON.parse(StringJSON)
+        //             console.log(JSON.parse(xhr.responseText))
+        //         }
+        //     }
+        // }
+        // ajax(url)
+    </script>
+</body>
+
+</html>

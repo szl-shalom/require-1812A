@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <button>fade</button>
+    <button>slide</button>
+    <button>btm</button>
+    <button>rotate</button>
+    <!-- <div class="dialog">
+        <div class="mask"></div>
+        <div class="content">
+            <h1>弹框</h1>
+            <div>
+                <button>确定</button>
+                <button>取消</button>
+            </div>
+        </div>
+    </div> -->
+    <script src="./lib/velocity.min.js">
+    </script>
+    <script>
+        var V = Velocity;
+        function Dialog(opt) {
+            Object.assign(this, {
+                title: "我是默认标题"
+            }, opt);
+            this.init();
+        }
+
+        Dialog.prototype = {
+            constructor: Dialog,
+            init() {
+                this.createDialog();
+                this.setAnimate();
+                this.bindEvent();
+            },
+            bindEvent() {
+                var ok = this.dialog.querySelector(".ok");
+                var no = this.dialog.querySelector(".no");
+
+                ok.onclick = () => {
+                    if (this.type === "fade") {
+                        V(this.dialog, "fadeOut", {
+                            duration: 5000,
+                            complete: () => {
+                                this.dialog.remove();
+                            }
+                        })
+                    } else if (this.type === "slide") {
+                        V(this.dialog, {
+                            top: ["100%", "0%"]
+                        }, {
+                            duration: 5000,
+                            complete: () => {
+                                this.dialog.remove();
+                            }
+                        })
+                    } else if (this.type === "rotate") {
+                        V(this.dialog, {
+                            rotateZ: "0deg",
+                            width: ["0%", "100%"],
+                            height: ["0%", "100%"],
+                        }, {
+                            duration: 5000,
+                            complete: () => {
+                                this.dialog.remove();
+                            }
+                        })
+                    } else {
+                        this.dialog.remove();
+                    }
+                }
+                no.onclick = () => { }
+            },
+            setAnimate() {
+                if (this.type === "fade") {
+                    V(this.dialog, "fadeIn", 5000)
+                } else if (this.type === "slide") {
+                    V(this.dialog, {
+                        top: ["0%", "-100%"]
+                    }, 5000)
+                } else if (this.type === "rotate") {
+                    V(this.dialog, {
+                        rotateZ: "720deg",
+                        width: ["100%", "0%"],
+                        height: ["100%", "0%"],
+                    }, 5000)
+                }
+            },
+            createDialog() {
+                this.dialog = document.createElement("div");
+                this.dialog.classList.add("dialog");
+                this.dialog.innerHTML = `
+                <div class="mask"></div>
+                    <div class="content">
+                        <h1>${this.title}</h1>
+                        <div>
+                            <button class="ok">确定</button>
+                            <button class="no">取消</button>
+                        </div>
+                    </div>
+                `
+                document.body.append(this.dialog);
+            }
+        }
+
+
+        var btns = document.querySelectorAll("button");
+
+
+        btns.forEach(item => {
+            item.onclick = function () {
+                new Dialog({
+                    type: item.innerHTML
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

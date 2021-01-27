@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: red;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="./lib/velocity.min.js"></script>
+    <script>
+        // 1。简单动画
+        var V = Velocity;
+        // 语法：
+        // V(element,css样式对象,配置对象)
+        // element ： 添加动画的元素
+        // css配置对象： 要变化的最终的样式
+        // 配置对象 ：配置对象
+        var box = document.querySelector(".box");
+
+
+        V(box, {
+            marginLeft: 200,
+        }, {
+            // 动画时长
+            duration: 5000,
+            // 次数
+            // loop: true,
+            // 动画开始延迟时间
+            // delay: 3000,
+            begin() {
+                console.log("动画开始了")
+            },
+            progress() {
+                console.log("动画进行中")
+            },
+            complete() {
+                console.log("动画完成了")
+            },
+            // 方式动画
+            easing: "swing", // 摇摆
+            easing: "linear", // 线性
+            easing: "spring", // 弹性
+            // css缓动关键字
+            easing: "ease", // 动画以低速开始，然后加快，在结束前变慢。
+            easing: "ease-in", // 动画以低速开始。
+            easing: "ease-out", // 动画以低速结束。
+            easing: "ease-in-out", // 动画以低速开始和结束。
+        })
+
+
+
+
+
+        // 1.链式动画：当给一个添加多个动画的时候 多个动画依次执行
+        //         V(box, {
+        //             width: "500px",
+        //         }, 5000)
+        // 
+        //         V(box, {
+        //             height: 500,
+        //         }, 5000)
+        // 
+        //         V(box, {
+        //             "border-radius": "50%",
+        //         }, 5000)
+    </script>
+</body>
+
+</html>

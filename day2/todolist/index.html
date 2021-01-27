@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>
+            <b>todolist</b>
+            <input type="text" class="add">
+        </h1>
+        <h2>正在进行
+            <b class="num1">3</b>
+        </h2>
+        <ul class="process">
+            <li>
+                <input type="checkbox">
+                <span>信息</span>
+                <b class="del">X</b>
+            </li>
+            <li>
+                <input type="checkbox">
+                <span>信息</span>
+                <b class="del">X</b>
+            </li>
+            <li>
+                <input type="checkbox">
+                <span>信息</span>
+                <b class="del">X</b>
+            </li>
+        </ul>
+
+        <h2>
+            已经完成
+            <b class="num2">2</b>
+        </h2>
+        <ul class="finish">
+            <li>
+                <input type="checkbox" checked>
+                <span>信息</span>
+                <b class="del">X</b>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <span>信息</span>
+                <b class="del">X</b>
+            </li>
+        </ul>
+    </div>
+    <script src="./index.js"></script>
+    <script>
+        new TodoList({
+            add: document.querySelector(".add"),
+            process: document.querySelector(".process"),
+            finish: document.querySelector(".finish"),
+            num1: document.querySelector(".num1"),
+            num2: document.querySelector(".num2"),
+        })
+    </script>
+</body>
+
+</html>

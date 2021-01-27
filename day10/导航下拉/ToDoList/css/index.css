@@ -1,0 +1,31 @@
+.wrap{
+    width: 500px;
+    margin: auto;
+}
+
+
+.header input{
+    width: 400px;
+    height: 36px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+ul li{
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+}
+
+ul li span{
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+ul li.active span{
+   color: red;
+   text-decoration: line-through;
+}

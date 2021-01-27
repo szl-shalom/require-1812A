@@ -1,0 +1,25 @@
+.wrap {
+    width: 1000px;
+    margin: auto;
+}
+
+
+.content {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.content video {
+    width: 100%;
+}
+
+.right{
+    float: right;
+    white-space: nowrap;
+}
+
+
+.right span.active{
+    color: red;
+}

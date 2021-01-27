@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.wrap{
+    width: 1000px;
+    margin: auto;
+}
+
+ul{
+    position: relative;
+}
+
+ul li{
+    list-style: none;
+    width: 100px;
+    border: 1px solid #ccc;
+    padding: 6px;
+    float: left;
+    margin: 0 10px;
+    position: relative;
+}
+
+ul li::before{
+    display: block;
+    background-image: url(./213125.png);
+    width: 100%;
+    content: "";
+    height: 100px;
+    background-size: 100% 100%;
+}
+
+ul li input{
+    width: 100%;
+    text-align: center;
+    border: 0;
+    height: 30px;
+}
+
+
+
+
+
+
+/* ul li:nth-child(1){
+    top: 100px;
+    left: 100px;
+} */

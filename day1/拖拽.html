@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background: hotpink;
+            border: 1px solid tomato;
+        }
+
+        img{
+            width: 200px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="drag box"></div>
+
+    <h1 class="drag">123</h1>
+    <img src="./1.jpg" alt="" class="drag">
+
+    <a href="" class="drag">托我</a>
+    <script>
+        function Drag(obj) {
+            // this.el = obj.el;
+            Object.assign(this, {}, obj);
+            this.init();
+        }
+
+        Drag.prototype = {
+            constructor: Drag,
+            init() {
+                this.bindEvent();
+            },
+            bindEvent() {
+                var that = this,
+                    pos = {},
+                    flag = false,
+                    dragEl = null;
+                document.addEventListener("mousedown", function (e) {
+                    var tar = e.target;
+                    if (tar.classList.contains(that.dragName)) {
+                        flag = true;
+                        pos = {
+                            x: e.offsetX,
+                            y: e.offsetY,
+                        }
+                        tar.style.position = "absolute";
+                        dragEl = tar;
+                        e.preventDefault();
+                        // e.stopPropagation()
+                    }
+
+                })
+                document.addEventListener("mouseup", function (e) {
+                    flag = false
+                })
+
+                document.addEventListener("mousemove", function (e) {
+                    if (flag) {
+                        dragEl.style.left = e.pageX - pos.x + "px";
+                        dragEl.style.top = e.pageY - pos.y + "px";
+                    }
+
+                })
+            }
+        }
+        
+        new Drag({
+            dragName: "drag"
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 分页器基本原理
+        var arr = ["a", "b", "c", "d", "e", "f", "g", "a1", "a2", "a3", "a4"];
+        //         0    1    2     3    4    5    6     7    8     9     10
+        //                   组           组的下标      每组个数         开始下标
+        arr.slice(0, 3)   //第一组           0             3                0
+        arr.slice(3, 6)   //第二组           1             3                3
+        arr.slice(6, 9)   //第三组           2             3                6
+        arr.slice(9, 12)  //第四组           3             3                9
+
+
+
+
+
+        // 问题来了： 现在有一组数据 为 data   当前的下标 index   每组的个数为 n
+        // 请问：改组的数据截取的数据：data.slice(index * n,index * n + n)
+        // 请问：能分几个组呢？  Math.ceil(data.length / n)
+
+
+    </script>
+</body>
+
+</html>

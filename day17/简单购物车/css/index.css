@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+
+
+.wrap{
+    width: 800px;
+    margin: auto;
+}
+
+
+table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+   
+}
+
+table td,table th{
+    border: 1px solid #ccc;
+}
+
+
+.color{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background: chartreuse;
+    display: inline-block;
+}
+
+table input[type=text]{
+    width: 26px;
+    text-align: center;
+}
+
+table tr{
+    min-height: 40px;
+}
+
+

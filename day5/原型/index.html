@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <script>
+        //         var obj = {};
+        //         // console.log(Object.prototype === obj.__proto__)
+        //         // console.log(obj)
+        // 
+        //         // 构造函数 Fn
+        //         function Fn() {
+        // 
+        //         }
+        //         // 实例对象 o1
+        //         var o1 = new Fn();
+        //         console.log(o1)
+        //         // console.log(Fn.prototype === o1.__proto__)
+
+        //     var o1 = {
+        //         name:"张三"
+        //     }
+        // 
+        //     var o2 = {
+        //         age:"18"
+        //     }
+        //     
+        //     var o3 = {
+        //         say(){
+        //             console.log(this.name)
+        //         }
+        //     }
+        //     o2.__proto__ = o3
+        //     o1.__proto__ = o2;
+        //     console.log(o1)
+        // 
+
+        function Fn(obj) {
+            Object.assign(this, {}, obj);
+            this.init();
+        }
+
+        Fn.prototype = {
+            constructor: Fn,
+            init() {
+
+                this.btns.forEach((item) => {
+                    console.log(this)
+                    item.onclick = () => {
+                        console.log(this)
+                    }
+                })
+            },
+            say() {
+                console.log("真开心")
+            }
+        }
+
+        new Fn({
+            btns: [...document.querySelectorAll("button")]
+        })
+    </script>
+</body>
+
+</html>

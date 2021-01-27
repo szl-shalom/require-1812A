@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button>开始</button>
+    <button>暂停</button>
+    <button>继续</button>
+    <button>结束</button>
+    <button>完成</button>
+    <script src="./lib/velocity.min.js"></script>
+    <script>
+        var V = Velocity;
+        var box = document.querySelector(".box");
+
+        var btns = document.querySelectorAll("button");
+
+        btns[0].onclick = function () {
+            V(box, {
+                marginLeft: 800
+            }, 10000)
+        }
+
+        btns[1].onclick = function () {
+            V(box, "pause")  //暂停
+        }
+
+        btns[2].onclick = function () {
+            V(box, "resume") //继续
+        }
+
+        btns[3].onclick = function () {
+            V(box, "stop")  //结束动画 
+        }
+
+        btns[4].onclick = function () {
+            V(box, "finish")  //完成动画
+        }
+        // V(box, "slideUp", 2000)   //上拉动画
+        // V(box, "slideDown", 2000) //下拉动画
+        // V(box, "fadeOut", 2000)   //淡出动画
+        // V(box, "fadeIn", 2000)    //淡入动画
+    </script>
+</body>
+
+</html>

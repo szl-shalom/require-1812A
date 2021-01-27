@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dialog {
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, .7);
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 25px;
+            width: 400px;
+        }
+
+        .right {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="dialog">
+        <div class="content">
+            <b class="right">X</b>
+            <h1>信息</h1>
+            <p>
+                信息的提示信息
+            </p>
+            <p>
+                <button>确定</button>
+                <button>取消</button>
+            </p>
+        </div>
+    </div> -->
+
+    <script src="data.js"></script>
+    <script>
+        data.forEach(function (item, index) {
+            var btn = document.createElement("button");
+            btn.innerHTML = item.name
+            document.body.appendChild(btn)
+
+            btn.onclick = function () {
+                dialog(item.text, item.name)
+            }
+        })
+
+        function dialog(con, name) {
+            // 1.创建节点
+            var box = document.createElement("div");
+            // 2.添加类别
+            box.classList.add("dialog");
+            // 3.修改内容
+            box.innerHTML = `
+            <div class="content">
+                <b class="right">X</b>
+                <h1>${name}</h1>
+                <p>
+                    ${con}
+                </p>
+                <p>
+                    <button class="ok">确定</button>
+                    <button class="no">取消</button>
+                </p>
+            </div>
+            `;
+            // 4.加入页面
+            document.body.appendChild(box);
+
+            var ok = document.querySelector(".ok"),
+                no = document.querySelector(".no"),
+                b = document.querySelector(".right");
+            // 5.添加事件（必须是添加页面之后才可以）
+            ok.addEventListener("click", function () {
+                box.remove();
+            })
+            no.addEventListener("click", function () {
+                box.remove();
+            })
+            b.addEventListener("click", function () {
+                box.remove();
+            })
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+    </ul>
+    <div class="list">
+        <span></span>
+    </div>
+    <script src="./data.js"></script>
+    <script>
+
+        var index = 0,
+            pageSize = 15;
+        var ul = document.querySelector("ul");
+        var list = document.querySelector(".list");
+
+        function getData() {
+            var result = arr.slice(index * pageSize, index * pageSize + pageSize);
+            var pageCode = Math.ceil(arr.length / pageSize);
+            render(result, pageCode)
+        }
+
+        function render(arr, pageCode) {
+            ul.innerHTML = arr.map(item => {
+                return `
+                    <li>${item}</li>
+                `
+            }).join("");
+            var str = "";
+            for (var i = 1; i <= pageCode; i++) {
+                str +=`<span>${i}</span>`
+            }
+            list.innerHTML = str;
+        }
+        getData()
+    </script>
+</body>
+
+</html>

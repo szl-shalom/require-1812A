@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* css3 */
+
+        /* body{
+            transform: translate(X轴偏移量，Y轴偏移量);
+            transform: rotateZ(度数);
+            transform: skew(倾斜角度);
+            transform: scale(比例);
+        } */
+
+    </style>
+</head>
+
+<body>
+    <script>
+        // 标准语法
+        V(element,{
+            // css样式
+        },{
+            // 配置
+            duration:"",  //时长
+            begin(){ //开始
+
+            },
+            progress(){  //进行
+
+            },
+            complete(){  //结束
+
+            },
+        })
+        // 关键字
+        V(element,"slideUp");  //上拉
+        V(element,"slideDown")  //下拉
+        V(element,"fadeIn")  //淡入
+        V(element,"fadeOut") // 淡出
+        V(element,"pause")  //暂停
+        V(element,"resume") //继续
+        V(element,"stop")  //结束
+        V(element,"finish")  //完成
+        V(element,"reverse")  //恢复上一个动画
+        V(element,"scroll")  //页面滚动到element节点
+    </script>
+</body>
+
+</html>

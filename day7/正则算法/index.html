@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="ipt">
+    <ul>
+
+    </ul>
+    <script>
+        var ipt = document.querySelector(".ipt"),
+            ul = document.querySelector("ul");
+
+        var arr = ["草泥马", "SB", "TMD", "妈妈", "爷爷"];
+        // 将数组转化为 正则表达式  
+        // 需要用到正则的构造函数形式
+        var reg = new RegExp(arr.map(function (item) {
+            return item
+        }).join("|"), "g");
+
+
+        ipt.addEventListener("keydown", function (e) {
+            if (e.keyCode === 13) {
+                var li = document.createElement("li");
+                // 字符串替换方法 
+                // 语法：String.replace(RegExp,String|Function)
+                // String|Function =>第二个参数 是字符串 直接替换
+                // String|Function =>第二个参数 是函数  替换为函数的返回值
+                li.innerHTML = ipt.value.replace(reg, function ($1) {
+                    // String.repeat(count);  
+                    // 代表重复字符串几次
+                    return "*".repeat($1.length)
+                });
+                ul.appendChild(li)
+            }
+        })
+
+
+        // 手机号替换****
+        var tel = "13111111111";
+        // 正则表达式分组了 
+        // 三个组
+        var reg = /^(1[3-9]\d)(\d{4})(\d{4})$/;
+        var res = tel.replace(reg, function ($1,$2,$3,$4) {
+            // $1 代表匹配整体
+            // $2 代表第一组   (1[3-9]\d)
+            // $3 代表第二组  (\d{4})
+            // $4 代表第三组  (\d{4})
+            // 返回的时候 将$3 也就是中间的4个字符 替换成  ****  /
+              return $2 + "****" + $4
+        })  
+        console.log(res)
+    </script>
+</body>
+
+</html>

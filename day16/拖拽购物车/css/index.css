@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+ li {
+    float: left;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    background: skyblue;
+    margin: 0 10px;
+    color: #fff;
+    line-height: 200px;
+}
+
+ul li:nth-child(odd) {
+    background: tomato;
+}
+
+.right{
+    float: right;
+    height: 1000px;
+    border-left: 1px solid #ccc;
+    width: 300px;
+}
+
+.right table{
+    width: 100%;
+    text-align: center;
+}

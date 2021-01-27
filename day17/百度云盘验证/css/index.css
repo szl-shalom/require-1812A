@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.swiper img {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper ul{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.swiper ul li {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background: rgba(0, 0, 0, .7);
+
+}
+
+.swiper ul li {
+    float: left;
+}
+
+.swiper ul li.active{
+    background: skyblue;
+}
+
+
+.tab{
+    position: absolute;
+    top: 100px;
+    right: 200px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+}
+
+
+.title {
+    width: 100%;
+    line-height: 40px;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+}   
+
+.title span{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.title span.active{
+    color: red;
+}
+
+
+.con {
+    display: none;
+}
+
+.con.active{
+    display: block;
+}
+
+.con p input{
+    width: 100%;
+    height: 36px;
+    border-radius: 10px;
+    padding-left: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.con p span{
+    color: red;
+}
+
+p{
+    margin: 30px 0;
+}
+
+.con button{
+    margin: auto;
+    width: 100%;
+    height: 36px;
+    background: tomato;
+    color: #fff;
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+}

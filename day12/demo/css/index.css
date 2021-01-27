@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style:none;
+    box-sizing: border-box;
+}
+
+.wrap{
+    width: 800px;
+    margin: auto;
+}
+
+.header{
+    /* 弹性布局 */
+    display: flex;
+    /* 横向两端对齐 */
+    justify-content: space-between;
+    /* 纵向居中对齐 */
+    align-items: center;
+    height: 60px;
+}
+.btn{
+    height: 36px;
+    background: tomato;
+    padding: 0px 30px;
+    border: 0;
+    color: #fff;
+    /* 鼠标滑过出现小手 */
+    cursor: pointer;
+}
+
+
+table{
+    width: 100%;
+    text-align: center;
+}
+table,table td,table th{
+    border: 1px    solid #ccc;
+}
+
+.dialog{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    display: none;
+}   
+
+.con{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.con p {
+    line-height: 36px;
+    height: 36px;
+}
+
+.con input{
+    height: 100%;
+    width: 220px;
+    border: 1px solid #ccc;
+}

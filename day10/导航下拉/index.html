@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <ul>
+        <li>
+            <span>标题1</span>
+            <ol>
+                <li>
+                    <span>标题1-1</span>
+                </li>
+                <li>
+                    <span>标题1-1</span>
+                </li>
+                <li>
+                    <span>标题1-1</span>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <span>标题2</span>
+            <ol>
+                <li>
+                    <span>标题1-1</span>
+                </li>
+                <li>
+                    <span>标题1-1</span>
+                </li>
+                <li>
+                    <span>标题1-1</span>
+                    <ol>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <span>标题3</span>
+            <ol>
+                <li>
+                    <span>标题1-1</span>
+                    <ol>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <span>标题1-1</span>
+                    <ol>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <span>标题1-1</span>
+                    <ol>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                        <li>
+                            <span>标题1-1-1</span>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <span>标题4</span>
+            <ol>
+                <li>
+                    <span>标题1-1</span>
+                </li>
+                <li>
+                    <span>标题1-1</span>
+                </li>
+                <li>
+                    <span>标题1-1</span>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <span>标题5</span>
+            <ol>
+                <li>
+                    <span>标题1-1</span>
+                </li>
+                <li>
+                    <span>标题1-1</span>
+                </li>
+                <li>
+                    <span>标题1-1</span>
+                </li>
+            </ol>
+        </li>
+    </ul>
+    <script src="./lib/velocity.min.js"></script>
+    <script>
+        var lis = [...document.querySelectorAll("ul li")];
+        var V = Velocity;
+
+
+        lis.forEach(item => {
+            // 鼠标进入事件  mouseenter
+            item.addEventListener("mouseenter", () => {
+                if (item.lastElementChild.nodeName === "OL") {
+                    // item.lastElementChild.style.display = "block"
+                    V(item.lastElementChild,"fadeIn",5000)
+                }
+
+            })
+            // 鼠标离开事件  mouseleave
+            item.addEventListener("mouseleave", () => {
+                if (item.lastElementChild.nodeName === "OL") {
+                    // item.lastElementChild.style.display = "none"
+                    V(item.lastElementChild,"fadeOut",5000)
+
+                }
+            })
+        })
+
+        // mouseenter 和 mouseleave  只会触发元素本身的事件   子元素不会触发父元素的事件  原因是不会发生冒泡
+
+
+    </script>
+</body>
+
+</html>

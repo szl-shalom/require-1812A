@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="swiper">
+            <img src="./img/1.jpg" alt="" class="swiper-img">
+            <ul class="swiper-page">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <div class="tab">
+            <div class="title">
+                <span class="active" ind="0">手机号登录</span>
+                <span ind="1">账户密码登录</span>
+            </div>
+            <div class="content">
+                <div class="con active">
+                    <p>
+                        <input type="text" placeholder="请输入手机号|邮箱|账户" class="user">
+                        <span></span>
+                    </p>
+                    <p>
+                        <input type="password" placeholder="请输入密码" class="pwd">
+                        <span></span>
+                    </p>
+                    <button class="login1">登录</button>
+                </div>
+                <div class="con">
+                    <p>
+                        <input type="text" placeholder="请输入手机号" class="tel">
+                        <span>提示信息</span>
+                    </p>
+                    <p>
+                        <input type="text" placeholder="请输入验证码" class="code">
+                        <span>1234</span>
+                    </p>
+                    <button class="login2">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./lib/require.js" data-main="main"></script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .con {
+            display: none;
+        }
+
+        .con.active {
+            display: block;
+        }
+
+        .con.qqq {
+            display: block;
+        }
+
+        span.active {
+            color: tomato;
+        }
+
+        span.qqq {
+            color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box1">
+            <div class="title">
+                <span>标题1</span>
+                <span>标题2</span>
+                <span>标题3</span>
+                <span>标题4</span>
+            </div>
+            <div class="content">
+                <div class="con">内容1</div>
+                <div class="con">内容2</div>
+                <div class="con">内容3</div>
+                <div class="con">内容4</div>
+            </div>
+        </div>
+        <div class="box2">
+            <div class="title">
+                <span class="active">标题1</span>
+                <span>标题2</span>
+                <span>标题3</span>
+                <span>标题4</span>
+            </div>
+            <div class="content">
+                <div class="con active">内容1</div>
+                <div class="con">内容2</div>
+                <div class="con">内容3</div>
+                <div class="con">内容4</div>
+            </div>
+        </div>
+
+        <div class="box3">
+            <div class="title">
+                <span class="qqq">标题1</span>
+                <span>标题2</span>
+                <span>标题3</span>
+                <span>标题4</span>
+            </div>
+            <div class="content">
+                <div class="con qqq">内容1</div>
+                <div class="con">内容2</div>
+                <div class="con">内容3</div>
+                <div class="con">内容4</div>
+            </div>
+        </div>
+
+        <div class="box4">
+            <div class="title">
+                <span class="qqq">标题1</span>
+                <span>标题2</span>
+                <span>标题3</span>
+                <span>标题4</span>
+            </div>
+        </div>
+    </div>
+    <script src="./lib/require.js" data-main="main"></script>
+
+
+</body>
+
+</html>
